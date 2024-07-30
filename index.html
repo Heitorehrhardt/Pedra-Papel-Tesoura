@@ -3,20 +3,69 @@
         
     </head>
 
-    <body style="text-align: center;" background="https://media-server.clubmed.com/image/jpeg/1024/auto/crop/center/70/https%3A%2F%2Fns.clubmed.com%2Faml%2FBrazil%2F2023%2FVNN-ARTIGOS%2F17072023%2Ftrilha-na-neve-italia.jpg">
-     <h1>Pedra Papel Tesoura</h1>
+    <body style="text-align: center;" background="https://p19-pu-sign-useast8.tiktokcdn-us.com/tos-useast5-p-0068-tx/80ec4298d5714f2b8c99d4ce01fa3ca4~tplv-photomode-zoomcover:720:720.jpeg?lk3s=b59d6b55&nonce=42895&refresh_token=631549fad814152496251a8f305f44df&x-expires=1722358800&x-signature=EyZjeVz7jD6kVzFzdAE4KpqCRMs%3D&shp=b59d6b55&shcp=-">
+     <h1>Pedra Papel ou Tesoura</h1>
      <p>Informe seu nome:</p>
-     <input type="text">
+     <input type="text"
      
-     <p>
+     </p>
         Escolha uma opcao
      </p>
 
-     <button style="padding:10px 15px;margin:7px">Pedra</button>
-     <button style="padding:10px 15px;margin:7px">Papel</button>
-     <button style="padding:10px 15px;margin:7px">Tesoura</button>
+     <button id="Pedra" style="padding:10px 15px;margin:7px">Pedra</button>
+     <button id="Papel" style="padding:10px 15px;margin:7px">Papel</button>
+     <button id="Tesoura" style="padding:10px 15px;margin:7px">Tesoura</button>
  
-     <p></p>
+     <p id="resultado"></p>
 
+     <script>
+        function jogadaaleatoria(){
+
+            const opcoes=['Pedra','Papel','Tesoura']
+            const jogadaaleatoroia =Math.floor(Math.random() *3)
+            return opcoes[jogadaaleatoroia]
+        }
+
+        function jogar(jogadadojogador){
+            const jogadadocomputador =jogadaaleatoria()
+
+            let resultado =''
+            if(jogadadojogador === jogadadocomputador){
+                resultado= 'Empate!'
+            } else if (
+            (jogadadojogador==='Pedra'&& jogadadocomputador==='Tesoura')||
+            (jogadadojogador==='Tesoura'&& jogadadocomputador==='Papel')||
+            (jogadadojogador==='Papel'&& jogadadocomputador==='Pedra')){
+                resultado ='Voce venceu!!!! '
+             } else {
+                resultado='Voce perdeu'
+             }
+
+             document.getElementById('resultado').innerText = resultado
+
+            }
+
+            
+        
+
+
+        const Pedra=document.getElementById('Pedra');
+        Pedra .addEventListener('click',function(){
+           jogar('Pedra')
+        })
+           const Papel=document.getElementById('Papel');
+        Papel .addEventListener('click',function(){
+           jogar('Pedra')
+        })
+           const Tesoura=document.getElementById('Tesoura');
+        Tesoura .addEventListener('click',function(){
+           jogar('Pedra')
+        })
+
+
+
+
+     </script>
+     
     </body>
 </html>
